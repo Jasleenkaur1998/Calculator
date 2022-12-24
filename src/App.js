@@ -1,10 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import ButtonSection from './components/buttonSection';
 import Box from '@mui/material/Box';
 import ViewSection from './components/viewSection';
+import { useState } from 'react';
 
 function App() {
+
+
+  let [viewState, setViewState ] = useState('');
+  let [totalValue, setTotalValue] = useState(0);
+
   return (
     <Box
     id="main-container"
@@ -19,8 +24,8 @@ function App() {
         height: 600,
         backgroundColor: 'black',
       }}>
-        <ViewSection />
-        <ButtonSection />
+        <ViewSection viewStateValue={viewState} mainTotal={totalValue} />
+        <ButtonSection mainTotal={totalValue} viewStateValue={viewState} changeViewState={setViewState} changeTotalState={setTotalValue} />
       </Box>
     </Box>
   );
